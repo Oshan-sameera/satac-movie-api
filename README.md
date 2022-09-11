@@ -37,7 +37,6 @@ java -jar target/movies-api-0.0.1-SNAPSHOT.jar # Run Spring Boot app with java -
 
 ### Folder structure
 
-```bash
 ├── backend
 │                
 └── frontend
