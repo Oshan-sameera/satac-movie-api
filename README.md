@@ -4,8 +4,8 @@
 
 Spring boot App
 
-* Get All Movies - 
-* Get by given filters-
+* Get All Movies - http://localhost:8080/movies
+* Get by given filters - http://localhost:8080/movies/search
 
 ## Frontend
 
@@ -15,6 +15,11 @@ simple react app
 
 * Backend run on - localhost:8080
 * Frontend run on - localhost:3000
+
+## Basic Authentication Credentials
+* username :- user
+* password :- 123
+
 
 ### How to run locally
 
