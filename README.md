@@ -19,10 +19,11 @@ simple react app
 ### How to run locally
 
 ```bash
-# to run the web app (make sure to run npm install beforehand)
+
 
 # to run the frontend 
 cd frontend
+npm install # to install node modules
 npm start 
 
 # to run the backend
