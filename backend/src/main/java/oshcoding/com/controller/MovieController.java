@@ -24,9 +24,6 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 
-	@Value("${spring.datasource.url}")
-	private String datasource;
-
 	@GetMapping
 	public List<Movie> getAllMovies() {
 		log.info("Getting all the movies form the josn file");

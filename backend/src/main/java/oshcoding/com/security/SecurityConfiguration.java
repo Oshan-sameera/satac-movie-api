@@ -17,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	  @Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	       //set your configuraion
 	        auth.inMemoryAuthentication()
 	                .withUser("user")
 	                .password("123")
@@ -37,9 +36,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	                .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
-	                //.formLogin().and()
 	                .httpBasic();
-	       //.cors().and()
+	   
 	    }
 	
 }

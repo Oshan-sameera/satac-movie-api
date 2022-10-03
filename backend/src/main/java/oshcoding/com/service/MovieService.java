@@ -26,31 +26,24 @@ public class MovieService {
 		String inputGenreConvert = movieGenre.trim().toLowerCase();
 		int inputYearConvert = Integer.parseInt(movieYear.trim());
 
-		Predicate<Movie> catoryfiler = movie -> movie.getGenreString().contains(inputGenreConvert);
+		Predicate<Movie> preTitle = movie -> movie.getTitle().toLowerCase().contains(inputTitleConvert);
+		Predicate<Movie> preYear = movie -> movie.getYear() == inputYearConvert;
+		Predicate<Movie> preGenre = movie -> movie.getGenreString().contains(inputGenreConvert);
 
-		Predicate<Movie> tilefiler = movie -> movie.getTitle().toLowerCase().contains(inputTitleConvert);
-
-		Predicate<Movie> yearfiler = movie -> movie.getYear() == inputYearConvert;
 		List<Movie> newMovies = new ArrayList<Movie>();
 	
 		if (inputTitleConvert != null) {
-			newMovies = movieList.stream().filter(tilefiler).collect(Collectors.toList());
-
-		} else {
-			newMovies = movieList;
-		}
+			newMovies = movieList.stream().filter(preTitle).collect(Collectors.toList());
+		} 
 		if (inputYearConvert != 0) {
 
-			newMovies = newMovies.stream().filter(yearfiler).collect(Collectors.toList());
+			newMovies = newMovies.stream().filter(preYear).collect(Collectors.toList());
 		}
 		if (movieGenre != null) {
-			newMovies = newMovies.stream().filter(catoryfiler).collect(Collectors.toList());
+			newMovies = newMovies.stream().filter(preGenre).collect(Collectors.toList());
 		}
 		
-		if (newMovies.size()==0) {
-			throw new MovieNotFoundException("Movie doesn't  exist");
-
-		}
+		
 		
 		return newMovies;
 	}
@@ -64,7 +57,7 @@ public class MovieService {
 			newMoviesList.add(s);
 		}
 		if (newMoviesList.size()==0) {
-			throw new MovieNotFoundException("Requested movie is not exist");
+			throw new MovieNotFoundException("No movies found");
 
 		}
 	
